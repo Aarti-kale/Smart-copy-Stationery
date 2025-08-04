@@ -1,0 +1,26 @@
+.footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #25D366;
+  }
+  
+  .social-icons a {
+    font-size: 1.5rem;
+    color: white;
+    margin-right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #25D366;
+    transform: scale(1.1);
+  }
+  

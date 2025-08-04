@@ -1,0 +1,94 @@
+/* .category-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+    padding-bottom: 10px;
+  }
+  
+  .category-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .category-scroll::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  .category-box {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    width: 140px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .category-box:hover {
+    transform: translateY(-5px);
+    background-color: #e9f5ff;
+  }
+   */
+   .why-section-custom {
+    background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    color: #004E89;
+    font-weight: 700;
+    font-size: 2.2rem;
+  }
+  
+  .category-scroll-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .category-card {
+    flex: 0 0 auto;
+    width: 200px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  
+  .category-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .category-name {
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 10px;
+  }
+  
+  /* Animation */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeInUp 0.7s ease forwards;
+  }
+  

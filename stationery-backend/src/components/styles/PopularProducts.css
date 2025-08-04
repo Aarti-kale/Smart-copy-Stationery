@@ -1,0 +1,114 @@
+/* .popular-products h2 {
+    font-size: 2rem;
+  }
+  
+  .product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-container {
+    max-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+  
+  .zoom-img {
+    transition: transform 0.3s ease-in-out;
+    max-height: 100%;
+  }
+  
+  .product-card:hover .zoom-img {
+    transform: scale(1.1);
+  }
+   */
+
+   .popular-section {
+    padding: 60px 20px;
+    background: #fefefe;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 36px;
+    color: #004E89;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: #004E89;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+  }
+  
+  
+  
+  .card {
+    background: white;
+    width: 260px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 3px solid transparent;
+    text-align: center;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    border: 3px solid #ffc107;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  .card h4 {
+    padding: 15px 10px 5px;
+    background: #004aad;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .card p {
+    padding: 10px;
+    font-weight: 500;
+    color: #555;
+  }
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  /* Each card takes ~48% of width on mobile (2 in a row) */
+  @media (max-width: 767px) {
+    .card {
+      flex: 0 0 calc(50% - 15px); /* 2 per row with gap */
+    }
+  }
+  
+  /* On tablets and up, go back to fixed width */
+  @media (min-width: 768px) {
+    .card {
+      width: 260px;
+      flex: unset;
+    }
+  }
+  
