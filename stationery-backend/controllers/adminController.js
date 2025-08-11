@@ -1,6 +1,8 @@
 const Admin = require('../models/Admin');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const sendEmail = require('../utils/sendEmail'); // Assuming you have a utility to send emails
 
 const registerAdmin = async (req, res) => {
   const { email, password } = req.body;
@@ -60,8 +62,63 @@ const getAdminProfile = async (req, res) => {
   }
 };
 
+const forgotPassword = async (req, res) => {
+      const { email } = req.body;
+
+      try {
+        const admin = await Admin.findOne({email});
+        if(!admin ) return res.status(404).json({message: "Admin not found"});
+
+        const resetToken = crypto.randomBytes(20).toString("hex");
+        admin.resetToken = resetToken;
+        admin.resetTokenExpiration = Date.now() + 15 * 60 * 1000;
+        await admin.save();
+
+        const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+        await sendEmail(email, " Reset your password",  `Click the link to reset your password : ${resetLink}`);
+
+        res.json({message : "Reset link sent to your email"});
+      } catch (err) {
+        res.status(500).json({error: err.message});
+      }
+
+      };
+
+
+      const resetPassword = async(req, res) => {
+
+        const {token} = req.params;
+        const {newPassword} = req.body;
+        
+        if(!newPassword) {
+          return res.status(400).json({message:"Password is required"})
+        }
+
+        try{
+          const admin = await Admin.findOne({
+            resetToken : token,
+            resetTokenExpiration : {$gt: Date.now()}
+          });
+
+          if(!admin) {
+            return res.status(400).json({message: "Invalid or expired token"});
+          }
+          admin.password = await bcrypt.hash(newPassword, 10);
+    admin.resetToken = undefined;
+    admin.resetTokenExpiration = undefined;
+          await admin.save();
+
+          res.json({message: "Password reset successful"});
+        } catch (err) {
+          res.status(500).json({error:err.message});
+        }
+      };
+
+
 module.exports = {
   registerAdmin,
   adminLogin,
   getAdminProfile,
+  forgotPassword,
+  resetPassword
 };

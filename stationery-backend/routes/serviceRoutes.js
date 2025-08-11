@@ -1,18 +1,3 @@
-// const express = require('express');
-// const router = express.Router();
-// const {
-//   getAllServices,
-//   createService,
-//   updateService,
-// } = require('../controllers/serviceController');
-
-// router.get('/', getAllServices);
-// router.post('/', createService);
-// router.put('/:id', updateService);
-
-// module.exports = router;
-
-
 const express = require('express');
 const router = express.Router();
 const  {createService,getAllServices,deleteService, getSingleService, updateService} = require('../controllers/serviceController');

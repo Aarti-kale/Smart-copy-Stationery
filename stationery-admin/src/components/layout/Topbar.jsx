@@ -55,7 +55,7 @@ function Topbar() {
           <i className="bi bi-person-circle fs-5"></i> Admin
         </button>
         <ul className="dropdown-menu dropdown-menu-end shadow" style={{ minWidth: "160px" }}>
-          {/* <li>
+          <li>
             <button
               className="dropdown-item d-flex align-items-center gap-2"
               onClick={() => navigate("/profile")}
@@ -63,7 +63,7 @@ function Topbar() {
               <i className="bi bi-gear text-primary"></i> Profile
             </button>
           </li> 
-           <li><hr className="dropdown-divider" /></li> */}
+           <li><hr className="dropdown-divider" /></li>
           <li>
             <button
               className="dropdown-item d-flex align-items-center gap-2 text-danger"
