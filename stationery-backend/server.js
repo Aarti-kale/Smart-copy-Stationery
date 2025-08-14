@@ -28,7 +28,9 @@ app.use('/api/values', require('./routes/valueRoutes'));
 app.use('/api/team',require('./routes/teamRoutes'));
 app.use('/api/admin/login', require('./routes/adminRoutes'));
 
-
+app.get("/", (req, res) => {
+    res.send("Api working");
+  });
 
 const PORT = process.env.PORT || 5000;
 
