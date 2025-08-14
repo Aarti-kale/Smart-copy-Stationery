@@ -9,8 +9,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
-// app.use(cors({origin: 'http://localhost:3001' , 'http://localhost:5173})); // Allow requests from the frontend
-app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:5000'], credentials: true }));
+app.use(cors({ origin: ['https://smart-copy-stationery-admin.onrender.com', 'https://smart-copy-and-stationery-nzqi.onrender.com', 'https://smart-copy-and-stationery.onrender.com'], credentials: true }));
 
 app.use(express.json());
 app.use('/public/uploads', express.static(path.join(__dirname, 'public/uploads'))); // image access
